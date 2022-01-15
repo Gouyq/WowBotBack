@@ -1,0 +1,41 @@
+{
+  "name": "hbc-backend",
+  "version": "1.0.0",
+  "description": "Cités d'or Backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node src/app.js",
+    "initialize": "node src/scripts/initialize.js",
+    "transpile": "babel src --out-dir dist",
+    "clean": "rimraf dist",
+    "build": "npm-run-all clean transpile"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "discord.js": "^12.3.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.6.1",
+    "https": "^1.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.7",
+    "mongoose-in-memory-autocomplete": "^1.2.3",
+    "mongoose-paginate-v2": "^1.3.9",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "rotating-file-stream": "^2.1.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/node": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/preset-env": "^7.11.5"
+  }
+}

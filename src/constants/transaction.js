@@ -1,0 +1,3 @@
+export const TRANSACTION_ADD_MONEY = 0
+export const TRANSACTION_REMOVE_MONEY = 1
+export const TRANSACTION_SET_MONEY = 2

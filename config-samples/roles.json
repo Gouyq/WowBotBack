@@ -1,0 +1,14 @@
+{
+  "ROLE_ADMIN": "Admin",
+  "ROLE_ADVERTISER": "Advertiser",
+  "ROLE_ADVERTISER_RARE": "ADV rare",
+  "ROLE_ADVERTISER_LEGENDARY": "ADV Legendary",
+  "ROLE_BOOSTER": "Booster",
+  "ROLE_MAIL": "Mail",
+  "ROLE_PLATE": "Plate",
+  "ROLE_CLOTH": "Cloth",
+  "ROLE_LEATHER": "Leather",
+  "ROLE_TANK": "Tank",
+  "ROLE_HEALER": "Healer",
+  "ROLE_DPS": "Dps"
+}
