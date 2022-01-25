@@ -69,7 +69,7 @@ module.exports.run = async (bot, boost, specificPlayers = {}) => {
   boostChannel.send(boostWaiting).then(waitingMessage => {
     setTimeout(() => {
       waitingMessage.delete()
-    }, 4000)
+    }, 15000)
   })
 
   const startingApply = () => {

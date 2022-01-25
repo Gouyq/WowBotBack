@@ -8,7 +8,6 @@ module.exports.run = async (bot, message) => {
   if (message.channel.id !== currentChannel) {
     wrongChannel(message, currentChannel)
   } else {
-
     User.getLeaderboard().exec((err, docs) => {
       let balanceChannel = message.guild.channels.cache.find(channel => channel.id === currentChannel)
       if (!balanceChannel) return message.channel.send('Couldn\'t find reports channel.')

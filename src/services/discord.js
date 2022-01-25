@@ -3,10 +3,11 @@ const qs = require('querystring')
 
 const DISCORD_BASE_URL = 'https://discord.com/api/v6'
 const REDIRECT_URI = process.env.FRONT_URL + '/auth/callback'
-axios.defaults.baseURL = DISCORD_BASE_URL
+
 
 export default {
   getToken (code) {
+    axios.defaults.baseURL = DISCORD_BASE_URL
     return axios
       .post(
         '/oauth2/token',
@@ -25,6 +26,7 @@ export default {
       )
   },
   getUserInfo (token) {
+    axios.defaults.baseURL = DISCORD_BASE_URL
     return axios
       .get(
         '/users/@me',
@@ -36,6 +38,7 @@ export default {
       )
   },
   refreshToken (token) {
+    axios.defaults.baseURL = DISCORD_BASE_URL
     return axios
       .post(
         '/oauth2/token',

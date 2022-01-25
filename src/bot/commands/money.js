@@ -24,10 +24,10 @@ module.exports.run = async (bot, message) => {
           rank: rank
         }
 
-        /*balanceChannel.send(`<@!${currentUser.id}>, <@!${bot.user.id}> sent you your balance report on DM, check out your messages!`)
-        currentUser.send(moneyChannel.moneyMessage(info, message))*/
+        balanceChannel.send(`<@!${currentUser.id}>, <@!${bot.user.id}> sent you your balance report on DM, check out your messages!`)
+        currentUser.send(moneyChannel.moneyMessage(info, message))
         
-        balanceChannel.send(moneyChannel.moneyMessage(info, message))
+        //balanceChannel.send(moneyChannel.moneyMessage(info, message))
       }
     })
   }
