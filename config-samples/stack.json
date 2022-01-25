@@ -1,0 +1,14 @@
+{
+    "paladin": "ROLE_PLATE",
+    "warrior": "ROLE_PLATE",
+    "death knight": "ROLE_PLATE",
+    "warlock": "ROLE_CLOTH",
+    "mage": "ROLE_CLOTH",
+    "priest": "ROLE_CLOTH",
+    "rogue": "ROLE_LEATHER",
+    "druid": "ROLE_LEATHER",
+    "monk": "ROLE_LEATHER",
+    "demon hunter": "ROLE_LEATHER",
+    "hunter": "ROLE_MAIL",
+    "shaman": "ROLE_MAIL"
+}
