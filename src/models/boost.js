@@ -59,6 +59,9 @@ const BoostSchema = new mongoose.Schema({
   realm: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Realm'
+  },
+  log: {
+    type: String,
   }
 }, {
   timestamps: true

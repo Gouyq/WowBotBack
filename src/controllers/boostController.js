@@ -8,7 +8,7 @@ const User = require('../models/user').User
 const Realm = require('../models/realm').Realm
 
 const cuts = require('../../config/cuts')
-import {BOOST_CANCELLED, BOOST_COMPLETED, BOOST_CONFIRMED, BOOST_INITIALIZED} from '../constants/boost'
+import {BOOST_CANCELLED, BOOST_VALIDATED, BOOST_CONFIRMED, BOOST_INITIALIZED} from '../constants/boost'
 import {TRANSACTION_ADD_MONEY} from '../constants/transaction'
 
 const {RealmTransaction} = require('../models/transaction')
@@ -164,7 +164,7 @@ exports.markAsCompleted = async (req, res) => {
             User.updateCurrentBalance(boost.advertiser, boost.cutAdvertiser, callback),
             Realm.updateCurrentBalance(boost.realm, boost.total),
             realmTransaction.save(),
-            boost.update({status: BOOST_COMPLETED}),
+            boost.update({status: BOOST_VALIDATED}),
             ...additionalActions
           ])
             .then(() => {
