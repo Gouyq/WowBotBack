@@ -22,5 +22,9 @@ export default function informationMessageCommand (message) {
           {
             name: '● **!money**',
             value: '  - Command to show your current balance  - Channel :' + message.guild.channels.cache.find(channel => channel.id === channels['money']).toString()
+          },
+          {
+            name: '● **!logs**',
+            value: '  - Register logs for a specific boost  - Channel :' + message.guild.channels.cache.find(channel => channel.id === channels['logs']).toString()
           })
 }
