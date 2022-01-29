@@ -57,7 +57,7 @@ export default {
               inline: true
             })
         .setTimestamp()
-        .setFooter(`⚖️ @Cités d'or | BoostId : ${boost.id.substr(0, 8)}`)
+        .setFooter(`⚖️ @Cités d'or | BoostId : ${boost.id}`)
 
     if (boost.description) {
       embedMessage.setDescription('```' + boost.description + '```')
@@ -66,7 +66,7 @@ export default {
     return embedMessage
 
   },
-  boostReadyMessage (embedMessage, boost, boosters) {
+  boostReadyMessage (embedMessage, boost, boosters, inviteCode) {
     const displayName = boosters.advertiserDiscord.user.username + '#' + boosters.advertiserDiscord.user.discriminator
     const iconServer = embedMessage.guild.iconURL()
 
@@ -77,9 +77,9 @@ export default {
         .setDescription(`<@!${boosters.tank.id}>  <@!${boosters.healer.id}>  <@!${boosters.dps1.id}>  <@!${boosters.dps2.id}>`)
         .addFields(
             {name: 'Whisper Command ', value: '``/w ' + boost.whisper + ' inv``', inline: true},
-            {name: 'Voice channel', value: `Go on boost channel`, inline: true})
+            {name: 'Voice channel', value: `[Join](https://discord.gg/${inviteCode})`, inline: true})
         .setThumbnail(iconServer)
-        .setFooter(`⚖️ @Cités d'or  | BoostId : ${boost.id.substr(0, 8)}`)
+        .setFooter(`⚖️ @Cités d'or  | BoostId : ${boost.id}`)
   },
   boostCancelMessage (embedMessage, boost, boosters) {
     const displayName = boosters.advertiserDiscord.user.username + '#' + boosters.advertiserDiscord.user.discriminator
@@ -103,7 +103,7 @@ export default {
             {name: 'Dungeon ', value: dungeon.join(' '), inline: true},
             {name: 'Key lvl ', value: key.join(' '), inline: true})
         .setThumbnail(iconServer)
-        .setFooter(`⚖️ @Cités d'or  | BoostId : ${boost.id.substr(0, 8)}`)
+        .setFooter(`⚖️ @Cités d'or  | BoostId : ${boost.id}`)
   },
   boostMention (boost) {
     let tagsToShow = []

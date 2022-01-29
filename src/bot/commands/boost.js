@@ -7,6 +7,7 @@ const emojiIds = require('../../../config/emojiIds')
 import {BOOST_CONFIRMED, BOOST_CANCELLED} from '../../constants/boost'
 
 const currentChannel = require('../../../config/channels')['boost']
+import voiceManager from '../../services/voice'
 
 module.exports.run = async (bot, boost, specificPlayers = {}) => {
   const guild = await bot.guilds.fetch(process.env.SERVER_ID)
@@ -240,8 +241,10 @@ module.exports.run = async (bot, boost, specificPlayers = {}) => {
                       dps2: dps2Model._id,
                       status: BOOST_CONFIRMED
                     })
-
-                    await embedMessage.reply(boostMessages.boostReadyMessage(embedMessage, boost, boosters))
+                    await voiceManager.createVocalBoost(embedMessage.guild.channels, `boost ${boost._id}`, boostChannel.parent, 6, async (channel, code)=> {
+                      await embedMessage.reply(boostMessages.boostReadyMessage(embedMessage, boost, boosters, code)) 
+                      voiceManager.deleteVocal(channel, (1000*60*60(boost.keys.size || 1)))
+                    })
                   }
                 })
                 .catch(async error => {
