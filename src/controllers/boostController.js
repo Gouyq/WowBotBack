@@ -8,7 +8,7 @@ const User = require('../models/user').User
 const Realm = require('../models/realm').Realm
 
 const cuts = require('../../config/cuts')
-import {BOOST_CANCELLED, BOOST_VALIDATED, BOOST_CONFIRMED, BOOST_INITIALIZED} from '../constants/boost'
+import {BOOST_CANCELLED, BOOST_VALIDATED, BOOST_CONFIRMED, BOOST_INITIALIZED,BOOST_COMPLETED} from '../constants/boost'
 import {TRANSACTION_ADD_MONEY} from '../constants/transaction'
 
 const {RealmTransaction} = require('../models/transaction')
@@ -111,10 +111,9 @@ exports.store = (req, res) => {
 exports.markAsCompleted = async (req, res) => {
   Boost.findById(req.params.id)
     .then(async (boost) => {
-      if (boost.status !== BOOST_CONFIRMED) {
+      if (boost.status !== BOOST_COMPLETED) {
         return res.status(422).json({message: 'Action not available!'})
       }
-
       const callback = (user, amount) => {
         const discordUser = bot.guilds.cache.find(g => g.id === process.env.SERVER_ID).members.cache.get(user.discordId)
 
